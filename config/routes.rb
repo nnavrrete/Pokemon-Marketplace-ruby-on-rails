@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :cartas, only: [ :index, :show, :create ]
     resources :publicaciones, only: [ :index, :create, :show, :destroy ]
     get "/cartas/:id/historial", to: "cartas#historial"
+    resources :compras, only: [ :create ]
   end
 end

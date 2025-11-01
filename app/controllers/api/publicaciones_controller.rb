@@ -26,7 +26,7 @@ class Api::PublicacionesController < ApplicationController
     # POST /api/publicaciones
     def create
       publicacion = Publicacion.new(publicacion_params)
-      
+
       if publicacion.save
         render json: publicacion, status: :created
       else

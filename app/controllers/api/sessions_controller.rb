@@ -8,4 +8,8 @@ class Api::SessionsController < ApplicationController
         render json: { error: "Email o contraseña incorrectos" }, status: :unauthorized
       end
     end
+   def destroy
+      # Aquí podrías implementar la lógica para invalidar el token si estás usando una lista de tokens revocados
+      render json: { message: "Sesión cerrada" }, status: :ok
+    end
 end

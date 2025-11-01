@@ -1,8 +1,8 @@
 class Api::PublicacionesController < ApplicationController
-    before_action :authorize_request, only: [ :create ]
+    before_action :authorize_request, only: [:create]
     def index
       publicaciones = Publicacion.includes(:carta, :usuario).all
-      render json: publicaciones.as_json(include: [ :carta, :usuario ])
+      render json: publicaciones.as_json(include: [:carta, :usuario])
     end
     def create
       publicacion = @current_user.publicaciones.new(publicacion_params)
@@ -17,3 +17,4 @@ class Api::PublicacionesController < ApplicationController
       params.require(:publicacion).permit(:carta_id, :precio)
     end
 end
+  
