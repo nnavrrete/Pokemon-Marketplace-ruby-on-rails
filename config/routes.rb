@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :usuarios, only: [ :index, :create, :update, :destroy ]
     post "login", to: "sessions#create"
     resources :cartas, only: [ :index, :show, :create ]
-    resources :publicaciones, only: [ :index, :create ]
+    resources :publicaciones, only: [ :index, :create, :show, :destroy ]
     get "/cartas/:id/historial", to: "cartas#historial"
   end
 end
