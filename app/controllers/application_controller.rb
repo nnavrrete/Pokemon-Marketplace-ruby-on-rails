@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::API
-    before_action :authorize_request
-    private
     def authorize_request
       header = request.headers["Authorization"]
-      header = header.split(" ").last if header
-      decoded = JsonWebToken.decode(header)
-      @current_user = Usuario.find(decoded[:usuario_id]) if decoded
-    rescue ActiveRecord::RecordNotFound, JWT::DecodeError
-      render json: { error: "No autorizado" }, status: :unauthorized
+      token = header.split(" ").last if header
+      decoded = JsonWebToken.decode(token)
+      @current_user = Usuario.find(decoded[:usuario_id])
+    rescue
+      render json: { errors: "No autorizado" }, status: :unauthorized
     end
 end

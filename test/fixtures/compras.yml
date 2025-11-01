@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comprador: one
+  publicacion: one
+  cantidad: 1
+  total: 9.99
+
+two:
+  comprador: two
+  publicacion: two
+  cantidad: 1
+  total: 9.99
